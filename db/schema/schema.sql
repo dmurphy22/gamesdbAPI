@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS Game;
 DROP TABLE IF EXISTS MameFile;
 DROP TABLE IF EXISTS File;
 DROP TABLE IF EXISTS Platform;
+DROP TABLE IF EXISTS PlatformAlternateName;
 
 
 CREATE TABLE Platform (
@@ -23,6 +24,11 @@ CREATE TABLE Platform (
   Notes TEXT,
   Category TEXT,
   UseMameFiles BOOLEAN
+);
+
+CREATE TABLE PlatformAlternateName (
+  id INTEGER PRIMARY KEY,
+  AlternateName TEXT
 );
 
 CREATE TABLE File (
