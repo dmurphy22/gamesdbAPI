@@ -30,7 +30,7 @@ const fillPlatformAlternate = db => {
           return alternate[row] ? alternate[row][0] : null;
         };
 
-        const values = [getValue('Name'), getValue('AlternateName')];
+        const values = [getValue('Name'), getValue('Alternate')];
 
         return new Promise((resolve, reject) => {
           db.run(insertQuery, values, function (err) {
