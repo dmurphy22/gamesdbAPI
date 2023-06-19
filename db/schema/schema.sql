@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS GameImage;
 DROP TABLE IF EXISTS GameAlternateName;
 DROP TABLE IF EXISTS Game;
 DROP TABLE IF EXISTS MameFile;
-DROP TABLE IF EXISTS File;
+DROP TABLE IF EXISTS Files;
 DROP TABLE IF EXISTS Platform;
 DROP TABLE IF EXISTS PlatformAlternateName;
 
@@ -28,15 +28,15 @@ CREATE TABLE Platform (
 
 CREATE TABLE PlatformAlternateName (
   id INTEGER PRIMARY KEY,
+  Name TEXT,
   AlternateName TEXT
 );
 
-CREATE TABLE File (
+CREATE TABLE Files (
   id INTEGER PRIMARY KEY,
-  PlatformId INTEGER,
+  Platform TEXT,
   FileName TEXT,
-  GameName TEXT,
-  FOREIGN KEY (PlatformId) REFERENCES Platform(id)
+  GameName TEXT
 );
 
 CREATE TABLE MameFile (
@@ -86,6 +86,7 @@ CREATE TABLE GameAlternateName (
   id INTEGER PRIMARY KEY,
   AlternateName TEXT,
   DatabaseID INTEGER,
+  Region TEXT,
   FOREIGN KEY (DatabaseID) REFERENCES Game(DatabaseID)
 );
 
@@ -97,3 +98,4 @@ CREATE TABLE GameImage (
   CRC32 INTEGER,
   FOREIGN KEY (DatabaseID) REFERENCES Game(DatabaseID)
 );
+VACUUM;
